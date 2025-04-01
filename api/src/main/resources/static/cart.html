@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Shopping Cart</h1>
+<a href="index.html">Back to Products</a>
+<table id="cart-table">
+    <thead>
+    <tr>
+
+        <th>Product No</th>
+        <th>Title</th>
+        <th>Stock</th>
+        <th>Price</th>
+        <th>Discount</th>
+        <th>Rating</th>
+        <th>Brand</th>
+        <th>Thumbnail</th>
+        <th>Images</th>
+        <th>Quantity</th>
+        <th>Total Amount</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Cart items will be inserted here by JavaScript -->
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="10">Total</td>
+        <td id="total-cost"></td>
+        <td></td>
+    </tr>
+    </tfoot>
+</table>
+<br><br>
+<div id="coupon-section">
+    <input type="text" id="couponCode" placeholder="Enter coupon code">
+    <button id="applyCouponButton">Apply Coupon</button>
+</div>
+<script src="cart.js">
+</script>
+</body>
+</html>

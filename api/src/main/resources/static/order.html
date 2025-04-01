@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Details</title>
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Order Details</h1>
+<form id="order-form">
+  <div class="form-group">
+    <label for="shipping-address">Shipping Address:</label>
+    <input type="text" id="shipping-address" name="shippingAddress" required>
+  </div>
+  <div class="form-group">
+    <label for="state">State:</label>
+    <input type="text" id="state" name="state" required>
+  </div>
+  <div class="form-group">
+    <label for="pincode">Pincode:</label>
+    <input type="text" id="pincode" name="pincode" required>
+  </div>
+  <div class="form-group">
+    <label for="phone-number">Phone Number:</label>
+    <input type="text" id="phone-number" name="phoneNumber" required>
+  </div>
+  <div class="form-group">
+    <button type="submit">Submit Order</button>
+  </div>
+</form>
+
+<script>
+        document.getElementById('order-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const shippingAddress = document.getElementById('shipping-address').value;
+            const state = document.getElementById('state').value;
+            const pincode = document.getElementById('pincode').value;
+            const phoneNumber = document.getElementById('phone-number').value;
+
+            // Store order details in localStorage or send them to the server
+            localStorage.setItem('orderDetails', JSON.stringify({
+                shippingAddress,
+                state,
+                pincode,
+                phoneNumber
+            }));
+
+            // Redirect to a confirmation page or display a confirmation message
+            alert('Order submitted successfully!');
+            window.location.href = 'payment.html'; // Replace with actual confirmation page if exists
+        });
+    </script>
+
+</body>
+</html>

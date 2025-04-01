@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        margin-bottom: 20px;
+    }
+    .payment-options {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .payment-option {
+        margin-bottom: 15px;
+    }
+    .pay-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .pay-button:hover {
+        background-color: #45a049;
+    }
+    .qr-code {
+        margin-top: 2px;
+        display: none;
+    }
+    .qr-code img {
+        width: 180px; /* Set the desired width */
+        height: auto; /* Maintain aspect ratio */
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Payment</h1>
+  <div class="payment-options">
+    <div class="payment-option">
+      <label>
+        <input type="radio" name="paymentMethod" value="debit" checked>
+        Debit Card
+      </label>
+    </div>
+    <div class="payment-option">
+      <label>
+        <input type="radio" name="paymentMethod" value="credit">
+        Credit Card
+      </label>
+    </div>
+    <div class="payment-option">
+      <label>
+        <input type="radio" name="paymentMethod" value="upi">
+        UPI
+      </label>
+    </div>
+    <div class="payment-option">
+      <label>
+        <input type="radio" name="paymentMethod" value="cash">
+        Cash on Delivery
+      </label>
+    </div>
+    <button class="pay-button" onclick="processPayment()">Pay Now</button>
+  </div>
+  <div class="qr-code" id="qrCode">
+    <img src="images/qr-Scan.jpg" alt="QR Scan Code">
+  </div>
+</div>
+<script>
+  document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      const qrCodeDiv = document.getElementById('qrCode');
+      if (this.value === 'upi') {
+        qrCodeDiv.style.display = 'block';
+      } else {
+        qrCodeDiv.style.display = 'none';
+      }
+    });
+  });
+
+  function processPayment() {
+    const selectedMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+    alert('Processing the payment...');
+
+    setTimeout(() => {
+      alert('Payment Successful');
+      window.location.href = 'index.html';
+    }, 2000); // 2 seconds delay
+  }
+</script>
+</body>
+</html>

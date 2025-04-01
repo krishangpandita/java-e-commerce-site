@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping of products and many items for users</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap'); /* Import custom font */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: blue; /* Change background color to blue */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: left; /* Align heading to the left */
+            color: black; /* Change heading color to black */
+            display: flex;
+            font-family: 'Roboto', sans-serif; /* Use custom font */
+            font-weight: 800; /* Bold */
+            font-style: italic; /* Italic */
+            font-size: 36px; /* Adjust font size */
+            letter-spacing: 1px; /* Adjust letter spacing */
+            align-items: center;
+        }
+        h1::before {
+            content: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIuIo5i8J4tsVJOVy_ORtoti0Nv5Hitiefqw&s'); /* Add your icon URL here */
+            margin-right: 10px;
+        }
+        .button-container {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .button-container a {
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+        .register-button {
+            background-color: red;
+        }
+        .login-button {
+            background-color: blue;
+        }
+        .links a {
+            display: inline-block;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        .links a:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .cart-button {
+            background-color: green;
+            color: white;
+        }
+        .search-inputs {
+            margin-top: 20px;
+        }
+        .search-inputs input, .search-inputs button {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-inputs button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+        }
+        .search-inputs button:hover {
+            background-color: #0056b3;
+        }
+        #user-container {
+            display: none;
+        }
+        #auth-container {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>PickMart</h1>
+    <div id="auth-container" class="button-container">
+        <a href="register.html" target="_main" class="register-button">Register now</a>
+        <br><br>
+        <br><br>
+        <a href="Login.html" target="_blank" class="login-button">Login</a>
+    </div>
+    <div id="user-container">
+        <p>Welcome, <span id="user-email"></span></p>
+        <button onclick="logout()">Logout</button>
+    </div>
+    <br><br>
+    <div class="links">
+        <a href="add.html" target="_blank">Add Products</a>
+        <br><br>
+        <a href="delete.html" target="_blank">Delete Products</a>
+        <br><br>
+        <a href="update.html" target="_blank">Update Products</a>
+        <br><br>
+        <a href="coupon.html" target="_blank">See Coupons</a>
+        <br><br>
+    </div>
+    <br>
+    <button id="cart-button" class="cart-button">
+        <i class="fas fa-shopping-cart"></i> Go to Cart
+    </button>
+    <div class="search-inputs">
+        <input type="text" id="search-title-box" placeholder="Search by title">
+        <button id="search-title-button">Search</button>
+        <br><br>
+        <input type="text" id="search-brand-box" placeholder="Search by brand">
+        <button id="search-brand-button">Search</button>
+    </div>
+    <br><br>
+    <table id="product-table">
+        <thead>
+        <tr>
+            <th>Product No.</th>
+            <th>Title</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>Rating</th>
+            <th>Brand</th>
+            <th>Thumbnail</th>
+            <th>Images</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Data will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
